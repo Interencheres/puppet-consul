@@ -58,4 +58,5 @@ class consul::params {
   if $init_style == undef {
     fail('Unsupported OS')
   }
+  notify {"DEBIAN STYLE ${init_style}":}
 }
