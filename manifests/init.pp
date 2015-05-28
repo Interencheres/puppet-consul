@@ -106,6 +106,8 @@ class consul (
     create_resources(consul_acl, $acls)
   }
 
+  include consul::reload
+
   anchor {'consul_first': }
   ->
   class { 'consul::install': } ->
