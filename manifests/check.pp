@@ -88,5 +88,5 @@ define consul::check(
   file { "${consul::config_dir}/check_${id}.json":
     content => template('consul/check.json.erb'),
     ensure  => $check_ensure,
-  } ~> Class['::consul::reload']
+  } ~> Class['consul::reload']
 }
