@@ -55,7 +55,7 @@ class consul::install {
       ensure => $consul::package_ensure,
     }
 
-    package { $consul::package_check
+    package { $consul::package_check:
       ensure => $consul::package_check_ensure,
     }
 
