@@ -55,6 +55,10 @@ class consul::install {
       ensure => $consul::package_ensure,
     }
 
+    package { $consul::package_check
+      ensure => $consul::package_check_ensure,
+    }
+
     if $consul::ui_dir {
       package { $consul::ui_package_name:
         ensure => $consul::ui_package_ensure,
