@@ -13,6 +13,12 @@ class consul::install {
     }
   }
 
+  if $consul::install_nagios_plugins {
+    package { $consul::package_nagios_plugins:
+      ensure => $consul::package_nagios_plugins_ensure,
+    }
+  }
+
   if $consul::install_method == 'url' {
 
     if ($::operatingsystem != 'darwin' and ! defined(Package['unzip'])) {
@@ -53,10 +59,6 @@ class consul::install {
 
     package { $consul::package_name:
       ensure => $consul::package_ensure,
-    }
-
-    package { $consul::package_check:
-      ensure => $consul::package_check_ensure,
     }
 
     if $consul::ui_dir {

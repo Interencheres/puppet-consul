@@ -5,14 +5,15 @@
 #
 class consul::params {
 
-  $install_method       = 'url'
-  $package_name         = 'consul'
-  $package_ensure       = 'latest'
-  $ui_package_name      = 'consul_ui'
-  $ui_package_ensure    = 'latest'
-  $package_check        = 'nagios-plugins'
-  $package_check_ensure = 'present'
-  $version              = '0.5.0'
+  $install_method                = 'url'
+  $package_name                  = 'consul'
+  $package_ensure                = 'latest'
+  $ui_package_name               = 'consul_ui'
+  $ui_package_ensure             = 'latest'
+  $package_nagios_plugins        = 'nagios-plugins'
+  $package_nagios_plugins_ensure = 'present'
+  $install_nagios_plugins        = true
+  $version                       = '0.5.0'
 
   case $::architecture {
     'x86_64', 'amd64': { $arch = 'amd64' }
