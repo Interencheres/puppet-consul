@@ -83,7 +83,7 @@ define consul::check(
     check => delete_undef_values($basic_hash)
   }
 
-  consul_validate_checks($check_hash[check])
+  #consul_validate_checks($check_hash[check])
 
   File[$consul::config_dir] ->
   file { "${consul::config_dir}/check_${id}.json":
