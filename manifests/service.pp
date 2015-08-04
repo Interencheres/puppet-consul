@@ -30,8 +30,14 @@ define consul::service(
   $address        = undef,
   $port           = undef,
   $checks         = [],
+  $script_source  = undef,
 ) {
   include consul
+
+  # Deploy script if necessary
+  if $script_source {
+    create_resources('file', $script_source)
+  }
 
   consul_validate_checks($checks)
 
