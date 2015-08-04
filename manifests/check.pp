@@ -53,6 +53,7 @@ define consul::check(
   $service_id    = undef,
   $timeout       = undef,
   $notes         = undef,
+  $name          = undef,
 ) {
   include consul
 
